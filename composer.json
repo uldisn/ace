@@ -1,0 +1,17 @@
+{
+    "name": "uldisn/ace",
+    "description": "Specific Ace things",
+    "keywords": ["ACE","yii","phundament"],
+    "type": "yii-extension",
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Uldis Nelsons",
+            "email": "uldisnelsons@gmail.com"
+        }
+     ],
+     "require": {
+        "php": ">=5.3.0",
+        "dbrisinajumi/audittrail": "dev-master"
+     }
+}
