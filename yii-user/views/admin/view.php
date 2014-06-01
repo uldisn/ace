@@ -1,36 +1,37 @@
 <?php
-
-
-
-$this->menu=array(
-    array('label'=>UserModule::t('Create User'), 'url'=>array('create')),
-    array('label'=>UserModule::t('Update User'), 'url'=>array('update','id'=>$model->id)),
-    array('label'=>UserModule::t('Delete User'), 'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>UserModule::t('Are you sure to delete this item?'))),
-    array('label'=>UserModule::t('Manage Users'), 'url'=>array('admin')),
-    array('label'=>UserModule::t('Manage Profile Field'), 'url'=>array('profileField/admin')),
-    array('label'=>UserModule::t('List User'), 'url'=>array('/user')),
-);
-
-?>
-
-<table class="toolbar"><tr>
-    <td>
-<?php
-                $this->widget("bootstrap.widgets.TbButton", array(
-                    "label" => UserModule::t('Manage Users'),
-                    "icon" => "icon-list-alt",
-                    "url" => array("admin"),
-                    //"visible" => Yii::app()->user->checkAccess("Company.*")
-                ));
-
-?>            
-    </td>
-    </tr>
-</table>    
+$cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
+    #"label"=>Yii::t("RasModule.crud","Cancel"),
+    "icon"=>"chevron-left",
+    "size"=>"large",
+    "url"=>(isset($_GET["returnUrl"]))?$_GET["returnUrl"]:array("{$this->id}/admin"),
+    "htmlOptions"=>array(
+                    "class"=>"search-button",
+                    "data-toggle"=>"tooltip",
+                    "title"=>Yii::t("RasModule.crud","Back"),
+                )
+ ),true);
+?>    
+<div class="clearfix">
+    <div class="btn-toolbar pull-left">
+        <div class="btn-group"><?php echo $cancel_buton;?></div>
+        <div class="btn-group">
+            <h1>
+                <i class="icon-user"></i>
+                <?php echo UserModule::t('View User');?>
+            </h1>
+        </div>
+        <div class="btn-group">
+            <?php
+            
+            
+            ?>
+        </div>
+    </div>
+</div>
     
 <div class="row">
 	<div class="span3">
-        <h2><?php echo UserModule::t('View User').' "'.$model->username.'"'; ?></h2>        
+
 
 <?php
  
@@ -67,6 +68,9 @@ $this->menu=array(
 		'attributes'=>$attributes,
 	));
 ?>
+<div class="btn-toolbar pull-left">
+        <div class="btn-group"><?php echo $cancel_buton;?></div>
+</div>        
     </div>
     <div class="span1"></div>
             <?php 
@@ -78,7 +82,7 @@ $this->menu=array(
                 <h2><?php echo UserModule::t('Roles'); ?></h2>
 
             <?php 
-            $form=$this->beginWidget('CActiveForm');
+            $form=$this->beginWidget('CActiveForm', array('id'=>'user-rolls'));
             $aChecked = Authassignment::model()->getUserRoles($model->id);
             if (count($aChecked) == 1){
                 //kaut kads gljuks, nedrikst padot masivu ar vienu elementu
@@ -145,21 +149,26 @@ $this->menu=array(
 
     ?>
 
-    <div class="form-actions">
-        
-    <?php
-        echo CHtml::resetButton(Yii::t('D2companyModule.crud_static','Reset'), array(
-			'class' => 'btn'
-			));
-        echo ' '.CHtml::submitButton(
-                    Yii::t('D2companyModule.crud_static','Save'), 
-                    array(
-                        'class' => 'btn btn-primary',
-                        'name'=>'save_user_roles'
-                    )
-                );
-    ?>
-    </div>    
+<div class="clearfix">
+    <div class="btn-toolbar pull-left">
+        <div class="btn-group">
+            
+                <?php  
+                    $this->widget("bootstrap.widgets.TbButton", array(
+                       "label"=>UserModule::t("Save"),
+                       "icon"=>"icon-thumbs-up icon-white",
+                       "size"=>"large",
+                       "type"=>"primary",
+                       "htmlOptions"=> array(
+                            "onclick"=>"$('#user-rolls').submit();",
+                       ),
+                    )); 
+                    ?>
+                  
+        </div>
+    </div>
+</div>                
+    
 <?php $this->endWidget(); ?>
 </div>
 </div>

@@ -26,22 +26,27 @@ $('.search-form form').submit(function(){
 ");
 
 ?>
-<table class="toolbar"><tr>
-    <td>
-<?php
-                $this->widget("bootstrap.widgets.TbButton", array(
-                    "label" => UserModule::t('Create User'),
-                    "icon" => "icon-plus",
-                    "url" => array("create"),
-                    //"visible" => Yii::app()->user->checkAccess("Company.*")
-                ));
 
-?>            
-    </td>
-    </tr>
-</table>    
-
-<h1><?php echo UserModule::t("Manage Users"); ?></h1>
+<div class="clearfix">
+    <div class="btn-toolbar pull-left">
+        <div class="btn-group">  
+<?php 
+    $this->widget("bootstrap.widgets.TbButton", array(
+        "label" => UserModule::t('Create'),
+        "icon" => "icon-plus",
+        "size"=>"large",
+        'type'=>'success',
+        "url" => array("create"),
+    ));
+    ?>
+</div>
+    <div class="btn-group">
+        <h1>
+            <i class="icon-user"></i>            
+            <?= UserModule::t("User List"); ?>
+        </h1>
+    </div>
+</div>        
 <div class="row">
 <div class="span10">
 
