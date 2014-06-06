@@ -6,7 +6,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
     "htmlOptions"=>array(
                     "class"=>"search-button",
                     "data-toggle"=>"tooltip",
-                    "title"=>UserModule::t("Back"),
+                    "title"=>UserModule::t("User List"),
                 )
  ),true);
 
