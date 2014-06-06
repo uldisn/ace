@@ -7,7 +7,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
     "htmlOptions"=>array(
                     "class"=>"search-button",
                     "data-toggle"=>"tooltip",
-                    "title"=>Yii::t("RasModule.crud","Back"),
+                    "title"=>UserModule::t("Back"),
                 )
  ),true);
 ?>    

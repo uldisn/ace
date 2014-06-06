@@ -1,13 +1,12 @@
 <?php
 $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
-    #"label"=>Yii::t("RasModule.crud","Cancel"),
     "icon"=>"chevron-left",
     "size"=>"large",
     "url"=>(isset($_GET["returnUrl"]))?$_GET["returnUrl"]:array("{$this->id}/admin"),
     "htmlOptions"=>array(
                     "class"=>"search-button",
                     "data-toggle"=>"tooltip",
-                    "title"=>Yii::t("RasModule.crud","Back"),
+                    "title"=>UserModule::t("crud","Back"),
                 )
  ),true);
 

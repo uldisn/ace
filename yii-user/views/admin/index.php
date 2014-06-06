@@ -47,6 +47,7 @@ $('.search-form form').submit(function(){
         </h1>
     </div>
 </div>        
+</div>    
 <div class="row">
 <div class="span10">
 
