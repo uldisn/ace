@@ -1,0 +1,113 @@
+/* 
+    Document   : parkoil_ace
+    Created on : Jan 9, 2014, 2:51:30 PM
+    Author     : edmunds
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+
+.page-content {
+    padding: 65px 20px 24px;
+}
+
+
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 20px;
+}
+
+
+.ace-settings-container {
+    top: 65px;
+ }
+
+ .sidebar:before {
+    background-color: #efefef;
+    border-right: 0px solid #CCCCCC;
+    bottom: 0;
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 189px;
+    z-index: -1;
+}
+ 
+ 
+ 
+    
+ 
+ h2 {
+     
+     font-size: 20px;
+ }
+
+    
+.user-info {
+  max-width: 200px;
+}  
+
+div.header-logon{
+    
+    height: 68px;
+    float : right;
+    line-height: 68px;
+    font-size: 15px;
+    padding-right: 10px;
+     
+}
+
+.sidebar.fixed, .sidebar.sidebar-fixed {
+    left: 0;
+    position: fixed;
+    z-index: 1029;
+}
+
+.navbar .brand {
+    margin-left: 0px;
+}
+
+.navbar .nav > li {
+    border-left: 1px solid #DDDDDD;
+    padding: 0;
+    position: relative;
+}
+.navbar .nav > li > a {
+    padding: 0 15px;
+}
+
+.ace-nav > li.dropdown {
+    background: none repeat scroll 0 0 #62A8D1;
+}
+
+.dropdown .dropdown-menu .nav-header {
+    background-color: #ECF2F7 !important;
+    border-bottom-color: #BCD4E5;
+    color: #8090A0;
+}
+.nav-header {
+    border-bottom: 1px solid;
+    font-size: 13px;
+    font-weight: bold;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    text-shadow: none;
+    text-transform: none;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(DXI1ORHCpsQm3Vp6mXoaTRsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
+  //src: local('Open Sans Light'), local('OpenSans-Light'), url(http://themes.googleusercontent.com/static/fonts/opensans/v7/DXI1ORHCpsQm3Vp6mXoaTRsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(uYKcPVoh6c5R0NpdEY5A-Q.woff) format('woff');
+  //src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v7/uYKcPVoh6c5R0NpdEY5A-Q.woff) format('woff');
+}
