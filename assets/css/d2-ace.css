@@ -20,8 +20,30 @@
 
 
 .ace-settings-container {
-    top: 65px;
+    position: fixed;
+    top: 105px;
  }
+ 
+.ace-help-container {
+    position: fixed;
+    top: 65px;
+}
+
+.btn.btn-app.btn-xs > .ace-icon {
+    display: block;
+    font-size: 24px;
+    line-height: 24px;
+    margin: 0;
+}
+
+.btn.btn-app.btn-xs {
+    border-radius: 8px;
+    font-size: 15px;
+    line-height: 1.45;
+    padding-bottom: 7px;
+    padding-top: 8px;
+    width: 64px;
+}
 
  .sidebar:before {
     background-color: #efefef;
