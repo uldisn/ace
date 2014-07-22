@@ -84,7 +84,7 @@ class CJuiAceDialog extends CJuiWidget
             false); // forceCopy        
         
         $this->scriptUrl = $ace_link.'/js';
-        $this->scriptFile = array('jquery.ui.touch-punch.min.js');
+        //$this->scriptFile = array('jquery.ui.touch-punch.min.js'); // don't need it yet
         $this->themeUrl = $ace_link;
         $this->theme = 'css';
         $this->cssFile = 'jquery-ui-1.10.3.full.min.css';
