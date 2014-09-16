@@ -3,6 +3,7 @@
 class TbAceHrMenu extends TbMenu
 {
     public $dropdownCssClass = 'light-blue';
+    public $itemCssClass = 'light-blue';
 	protected function renderMenuItem($item)
 	{
 		if (isset($item['icon'])) {
@@ -12,6 +13,14 @@ class TbAceHrMenu extends TbMenu
 
 			$item['label'] = '<i class="' . $item['icon'] . '"></i> ' . $item['label'];
 		}
+        
+        if (isset($item['badge_type'])) {
+            $item['label'] .= '<span class="badge badge-'.$item['badge_type'].'">';
+            if (isset($item['badge_label'])) {
+                 $item['label'] .= $item['badge_label'];
+            }
+            $item['label'] .= '</span>';
+        }
 
 		if (!isset($item['linkOptions'])) {
 			$item['linkOptions'] = array();
