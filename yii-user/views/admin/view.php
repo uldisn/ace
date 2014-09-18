@@ -156,13 +156,14 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
             
                 <?php  
                     $this->widget("bootstrap.widgets.TbButton", array(
-                       "label"=>UserModule::t("Save"),
-                       "icon"=>"icon-thumbs-up icon-white",
-                       "size"=>"large",
-                       "type"=>"primary",
-                       "htmlOptions"=> array(
+                        "label"=>UserModule::t("Save"),
+                        "icon"=>"icon-thumbs-up icon-white",
+                        "size"=>"large",
+                        "type"=>"primary",
+                        "htmlOptions"=> array(
                             "onclick"=>"$('#user-rolls').submit();",
-                       ),
+                        ),
+                        "visible" => Yii::app()->user->checkAccess("UserAdmin")
                     )); 
                     ?>
                   

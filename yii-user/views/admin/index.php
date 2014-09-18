@@ -37,6 +37,7 @@ $('.search-form form').submit(function(){
         "size"=>"large",
         'type'=>'success',
         "url" => array("create"),
+        "visible" => Yii::app()->user->checkAccess("UserAdmin")
     ));
     ?>
 </div>
@@ -76,7 +77,12 @@ $('.search-form form').submit(function(){
 			//'filter' => User::itemAlias("UserStatus"),
 		),
 		array(
-			'class'=>$defaultGridView['buttonColumn'],
+			'class' => 'TbButtonColumn',
+            'buttons' => array(
+                'view' => array('visible' => 'TRUE'),
+                'update' => array('visible' => 'Yii::app()->user->checkAccess("UserAdmin")'),
+                'delete' => array('visible' => 'Yii::app()->user->checkAccess("UserAdmin")'),
+            ),
 		),
 	),
 )); ?>
