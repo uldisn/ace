@@ -106,7 +106,6 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
              * SYS companies
              */
             $companies_list = Yii::app()->sysCompany->getClientCompanies();
-
             ?>                
                 <h2><?php echo UserModule::t('Sys companies'); ?></h2>
 

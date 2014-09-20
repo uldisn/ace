@@ -22,9 +22,6 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
     </div>
 </div>
 
-<div class="row">
-    <div class="span3">
-
 <?php
     $view = '_form';       
      if(Yii::app()->getModule('user')->view){
@@ -37,8 +34,6 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
 	echo $this->renderPartial($view, array('model'=>$model,'profile'=>$profile));
 ?>
 
-    </div>
-</div>
 <div class="clearfix">
     <div class="btn-toolbar pull-left">
         <div class="btn-group"><?php echo $cancel_buton;?></div>
