@@ -25,6 +25,26 @@ class TbAceDetailView extends CDetailView
             #'.$this->id.' .profile-info-value {margin-left: '.$this->label_width.'px;}
         ');        
         
+        foreach($this->attributes as $k => $attribute)
+		{
+            if(!isset($attribute['external_link'])){
+                continue;
+            }
+            if(empty($attribute['value_id'])){
+                continue;
+            }
+            $this->attributes[$k]['value'] .=  '&nbsp;'
+                    .CHtml::link(
+                            '<i class="icon-external-link"></i>',
+                            $attribute['external_link'],
+                            array(
+                                'target'=>'_blank',
+                                'title'=>$attribute['external_title'],
+                                'data-toggle'=>'tooltip',
+                                )
+                            );
+        }            
+        
 
 	}
    
