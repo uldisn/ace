@@ -136,7 +136,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
             }else{
                 //get user sys companies
                 foreach ($companies_list as $mCcmp) {
-                    $list[$mCcmp->ccucCcmp->ccmp_id] = $mCcmp->ccucCcmp->ccmp_name;
+                    $list[$mCcmp['ccmp_id']] = $mCcmp['ccmp_name'];
                 }            
             }
 
