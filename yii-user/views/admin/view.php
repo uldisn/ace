@@ -126,11 +126,19 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
             $list = array();
             if(UserModule::isAdmin()){
                 //for admin get all sys companies
-                $criteria = new CDbCriteria;
-                $criteria->compare('t.ccxg_ccgr_id', 1); //1 - syscompany
-                $model_ccxg = CcxgCompanyXGroup::model()->findAll($criteria);                
-                foreach ($model_ccxg as $mCcxg) {
-                    $list[$mCcxg->ccxg_ccmp_id] = $mCcxg->ccxgCcmp->ccmp_name;
+                $sql = "
+                    SELECT 
+                        ccmp_id,
+                        ccmp_name 
+                      FROM
+                        ccxg_company_x_group 
+                        INNER JOIN ccmp_company 
+                          ON ccxg_ccmp_id = ccmp_id 
+                      WHERE ccxg_ccgr_id = ".Yii::app()->params['sys_company']." 
+                      ORDER BY ccmp_name";
+                $ccmp_list = Yii::app()->db->createCommand($sql)->queryAll();
+                foreach ($ccmp_list as $ccmp) {
+                    $list[$ccmp['ccmp_id']] = $ccmp['ccmp_name'];
                 }            
 
             }else{
