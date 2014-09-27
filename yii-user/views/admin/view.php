@@ -134,7 +134,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                         ccxg_company_x_group 
                         INNER JOIN ccmp_company 
                           ON ccxg_ccmp_id = ccmp_id 
-                      WHERE ccxg_ccgr_id = ".Yii::app()->params['sys_company']." 
+                      WHERE ccxg_ccgr_id = ".Yii::app()->params['ccgr_group_sys_company']." 
                       ORDER BY ccmp_name";
                 $ccmp_list = Yii::app()->db->createCommand($sql)->queryAll();
                 foreach ($ccmp_list as $ccmp) {
