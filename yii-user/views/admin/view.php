@@ -30,7 +30,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
 </div>
     
 <div class="row">
-	<div class="span3">
+	<div class="span6">
 
 
 <?php
@@ -72,8 +72,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
         <div class="btn-group"><?php echo $cancel_buton;?></div>
 </div>        
     </div>
-    <div class="span1"></div>
-            <?php 
+           <?php 
             /**
              * ROLES
              */
