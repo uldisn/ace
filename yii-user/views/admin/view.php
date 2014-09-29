@@ -97,7 +97,13 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                     'user_role_name', 
                     $aChecked, 
                     $list,
-                    array ( 'labelOptions'=>array('style'=>'display: inline'))
+                    array ( 
+                        'labelOptions'=>array(
+                            'style'=>'display: inline',
+                            ),
+                        'template' => '{input}<span class="lbl"></span> {label}',
+                        'class' => 'ace',
+                        )
                     );
              
              
@@ -151,7 +157,13 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                     'user_sys_ccmp_id', 
                     $aChecked, 
                     $list,
-                    array ( 'labelOptions'=>array('style'=>'display: inline'))
+                    array ( 
+                        'labelOptions'=>array(
+                            'style'=>'display: inline',
+                            ),
+                        'template' => '{input}<span class="lbl"></span> {label}',
+                        'class' => 'ace',
+                        )
                     );
 
     ?>
