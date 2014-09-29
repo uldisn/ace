@@ -178,5 +178,55 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
 </div>                
     
 <?php $this->endWidget(); ?>
+                
+<?php
+if (Yii::app()->user->checkAccess("UserAdmin")) {
+    $code_card = Yii::app()->getModule('user')->codeCard;
+    if (!empty($code_card['host']) && !empty($code_card['apy_key']) && !empty($code_card['crypt_key'])) {
+        ?>
+        <h2><i class="icon-unlock"></i> <?php echo UserModule::t('Code Card'); ?></h2>
+        <div class="clearfix">
+            <div class="btn-toolbar pull-left">
+                <div class="btn-group">
+
+                    <?php
+                    
+                        if ($model->profile->getAttribute('code_card_expire_date')) {
+                            $button_text   = 'Regenerate';
+                            $button_class  = 'btn-warning';
+                            $button_icon   = 'icon-refresh';
+                            $button_action = 'change_card';
+                        } else {
+                            $button_text   = 'Generate';
+                            $button_class  = 'btn-success';
+                            $button_icon   = 'icon-plus';
+                            $button_action = 'create_card';
+                        }
+                        
+                        $this->widget("bootstrap.widgets.TbButton", array(
+                            "label"=>UserModule::t($button_text),
+                            "icon"=>$button_icon,
+                            "size"=>"large",
+                            "type"=>"primary",
+                            "url"=>array(
+                                "genCodeCard",
+                                'id' => $model->id,
+                                'request_type' => $button_action
+                            ),
+                            "htmlOptions"=> array(
+                                "class" => $button_class,
+                            )
+                        ));
+                    ?>
+
+                </div>
+            </div>
+        </div>
+        
+        <?php
+    }
+}
+
+?>
 </div>
 </div>
