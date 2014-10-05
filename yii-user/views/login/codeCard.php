@@ -51,7 +51,7 @@
                                                         </label>
 
                                                         <div class="col-sm-9" style="float:left; margin-right: 5px;">
-                                                            <input type="text" class="col-xs-10 col-sm-5 input-mini" style="height: 20px;" placeholder="<?php echo UserModule::t("Code"); ?>" id="code" name="code"/>
+                                                            <input type="text" class="col-xs-10 col-sm-5 input-mini" style="height: 20px; line-height: 20px;" placeholder="<?php echo UserModule::t("Code"); ?>" id="code" name="code"/>
                                                         </div>
                                                         <?php  
                                                             $this->widget("bootstrap.widgets.TbButton", array(
