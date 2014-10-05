@@ -196,7 +196,7 @@ if (Yii::app()->user->checkAccess("UserAdmin")) {
     $code_card = Yii::app()->getModule('user')->codeCard;
     if (!empty($code_card['host']) && !empty($code_card['apy_key']) && !empty($code_card['crypt_key'])) {
         ?>
-        <h2><i class="icon-unlock"></i> <?php echo UserModule::t('Code Card'); ?></h2>
+        <h2><i class="icon-lock"></i> <?php echo UserModule::t('Code Card'); ?></h2>
         <div class="clearfix">
             <div class="btn-toolbar pull-left">
                 <div class="btn-group">
