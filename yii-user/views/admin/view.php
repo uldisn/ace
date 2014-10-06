@@ -169,6 +169,9 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
             /**
              * IP Tables
              */
+            $security_policy = Yii::app()->getModule('user')->SecurityPolicy;
+            
+            if ($security_policy['useIpTables']) {
             ?>
             <h2><?php echo UserModule::t('IP Tables'); ?></h2>
             <?php
@@ -194,7 +197,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                 )
             );
             
-            
+            }
     ?>
 
 <div class="clearfix">
