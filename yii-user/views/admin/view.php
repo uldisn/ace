@@ -72,12 +72,12 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
         <div class="btn-group"><?php echo $cancel_buton;?></div>
 </div>        
     </div>
-           <?php 
+            <div class="span3"> <!-- main inputs -->
+            <?php 
             /**
              * ROLES
              */
             ?>
-            <div class="span3"> <!-- main inputs -->
                 <h2><?php echo UserModule::t('Roles'); ?></h2>
 
             <?php 
@@ -163,9 +163,38 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                             ),
                         'template' => '{input}<span class="lbl"></span> {label}',
                         'class' => 'ace',
-                        )
-                    );
-
+                    )
+                );
+            
+            /**
+             * IP Tables
+             */
+            ?>
+            <h2><?php echo UserModule::t('IP Tables'); ?></h2>
+            <?php
+            
+            $aChecked  = UxipUserXIpTable::model()->getUserIpTables($model->id);
+            $Iptb_list = IptbIpTable::model()->findAll();
+            
+            $list = array();
+            foreach ($Iptb_list as $Iptb) {
+                $list[$Iptb['iptb_id']] = Yii::t('roles', $Iptb['iptb_name']);
+            }
+            
+            echo CHtml::checkBoxList(
+                'ip_tables', 
+                $aChecked,
+                $list,
+                array ( 
+                    'labelOptions'=>array(
+                        'style'=>'display: inline',
+                    ),
+                    'template' => '{input}<span class="lbl"></span> {label}',
+                    'class' => 'ace',
+                )
+            );
+            
+            
     ?>
 
 <div class="clearfix">
