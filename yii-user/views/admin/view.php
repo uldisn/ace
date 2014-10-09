@@ -97,7 +97,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
             );
         }
 
-        $this->widget('aceBox', array(
+        $this->widget('AceBox', array(
             'header_text' => UserModule::t('Roles'),
             'info_allert' => $info_allert,
             'body' => $body,
@@ -150,7 +150,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                         )
         );
 
-        $this->widget('aceBox', array(
+        $this->widget('AceBox', array(
             'header_text' => UserModule::t('Sys companies'),
             'body' => $body,
         ));
@@ -180,7 +180,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                             )
             );
 
-            $this->widget('aceBox', array(
+            $this->widget('AceBox', array(
                 'header_text' => UserModule::t('IP Tables'),
                 'body' => $body,
             ));
@@ -239,7 +239,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                         "class" => $button_class,
                     )
                         ), true);
-                $this->widget('aceBox', array(
+                $this->widget('AceBox', array(
                     'header_icon_class' => 'icon-lock',
                     'header_text' => UserModule::t('Code Card'),
                     'body' => $body,
