@@ -42,23 +42,10 @@
 
 <form id="id-message-form" class="form-horizontal message-form">
     <?php 
-    if($recipient){
-    ?>
-    <div class="control-group">
-        <label class="control-label" for="form-field-recipient"><?php echo Yii::t('AceModule.d2maillist', 'Recipient');?>:</label>
-
-        <div class="controls">
-            <span class="input-icon">
-                <input type="email" name="recipient" id="form-field-recipient" data-value="alex@doe.com" value="alex@doe.com" placeholder="Recipient(s)" />
-                <i class="icon-user"></i>
-            </span>
-        </div>
-    </div>
-    <div class="hr hr-16 dotted"></div>    
-    <?php 
+    if($recipient_html){
+        echo $recipient_html;
     }
     ?>
-
 
     <div class="control-group">
         <label class="control-label" for="form-field-subject"><?php echo Yii::t('AceModule.d2maillist', 'Subject');?>:</label>
