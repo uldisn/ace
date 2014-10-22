@@ -68,7 +68,7 @@ if (Yii::app()->hasModule('d2person')) {
 <?php
 }
 
-if (Yii::app()->hasModule('d2files')) {
+if (Yii::app()->hasModule('d2files') ) {
 ?>
 <div class="space-12"></div>
     <div class="row-fluid">
@@ -76,7 +76,16 @@ if (Yii::app()->hasModule('d2files')) {
             <?
             $pprs_id = Yii::app()->getModule('user')->user()->profile->person_id;
             $pprs_model = PprsPerson::model()->findByPk($pprs_id);
-            $this->widget('d2FilesWidget',array('module'=>'PprsPerson', 'model'=>$pprs_model));
+            if($empty(pprs_model)){
+                ?>
+                    <div class="alert alert-warning">
+                        <strong>Warning!</strong>
+                        Can not fin person data record!
+                    </div>                    
+                <?php
+            }else{
+                $this->widget('d2FilesWidget',array('module'=>'PprsPerson', 'model'=>$pprs_model));
+            }
             ?>
         </div>
 
