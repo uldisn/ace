@@ -76,7 +76,7 @@ if (Yii::app()->hasModule('d2files') ) {
             <?
             $pprs_id = Yii::app()->getModule('user')->user()->profile->person_id;
             $pprs_model = PprsPerson::model()->findByPk($pprs_id);
-            if($empty(pprs_model)){
+            if(empty($pprs_model)){
                 ?>
                     <div class="alert alert-warning">
                         <strong>Warning!</strong>
