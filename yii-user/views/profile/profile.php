@@ -84,7 +84,7 @@ if (Yii::app()->hasModule('d2files') ) {
                     </div>                    
                 <?php
             }else{
-                $this->widget('d2FilesWidget',array('module'=>'PprsPerson', 'model'=>$pprs_model));
+                $this->widget('d2FilesWidget',array('module'=>'d2person', 'model'=>$pprs_model));
             }
             ?>
         </div>
