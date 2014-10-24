@@ -80,7 +80,7 @@ if (Yii::app()->hasModule('d2files') ) {
                 ?>
                     <div class="alert alert-warning">
                         <strong>Warning!</strong>
-                        Can not fin person data record!
+                        Can not find person data record!
                     </div>                    
                 <?php
             }else{
