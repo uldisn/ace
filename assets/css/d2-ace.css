@@ -123,6 +123,17 @@ div.row {
     margin-left: 0;
 }
 
+table td.numeric-column {
+    text-align:right;
+    width:70px;
+    font-family: Monaco, Menlo, "Courier New", monospace;
+}
+
+table td.total-row {
+    text-align:right;
+    font-weight:bold;
+}
+
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
