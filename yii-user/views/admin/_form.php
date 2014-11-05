@@ -27,8 +27,13 @@
 <?php echo $form->labelEx($model, 'username'); ?>
                     </div>
                     <div class='controls'>
-                        <?php echo $form->textField($model, 'username', array('size' => 20, 'maxlength' => 20)); ?>
-<?php echo $form->error($model, 'username'); ?>
+                        <?php echo $form->textField($model, 'username', array(
+                            'size' => 20, 
+                            'maxlength' => 20,
+                            'autocomplete' => 'off',
+                            )
+                                ); ?>
+                        <?php echo $form->error($model, 'username'); ?>
                     </div>
                 </div>
 
@@ -37,7 +42,11 @@
 <?php echo $form->labelEx($model, 'password'); ?>
                     </div>
                     <div class='controls'>
-                        <?php echo $form->passwordField($model, 'password', array('size' => 60, 'maxlength' => 128)); ?>
+                        <?php echo $form->passwordField($model, 'password', array(
+                            'size' => 60, 
+                            'maxlength' => 128,
+                            'autocomplete' => 'off',
+                            )); ?>
 <?php echo $form->error($model, 'password'); ?>
                     </div>
                 </div>
