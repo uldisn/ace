@@ -1,6 +1,5 @@
 <?php
 $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
-
     "icon" => "chevron-left",
     "size" => "large",
     "url" => (isset($_GET["returnUrl"])) ? $_GET["returnUrl"] : array("{$this->id}/admin"),
@@ -10,6 +9,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
         "title" => UserModule::t("User List"),
     )
         ), true);
+    
 ?>    
 <div class="clearfix">
     <div class="btn-toolbar pull-left">
@@ -34,7 +34,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                         ),
                     ));        
                     $this->widget("bootstrap.widgets.TbButton", array(
-                        "label"=>Yii::t("D2companyModule.crud","Audit Trail"),
+                        "label"=>UserModule::t("Audit Trail"),
                         'type'=>'info',
                         "size"=>"large",
                         "url"=>array(
@@ -44,13 +44,48 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                         ),
                         "icon"=>"icon-info-sign",
                     ));                        
+
                 }
+                $this->widget("bootstrap.widgets.TbButton", array(
+                    "label" => UserModule::t("Invite or Reset password by email"),
+                    'type' => TbButton::TYPE_WARNING,
+                    "size" => "large",
+                    "url" => array('emailInvitation', 'id' => $model->getPrimaryKey()),
+                ));                
                 
             ?>
         </div>
     </div>
 </div>
 
+
+
+    <?php 
+    if (isset($_GET['sent']) && $_GET['sent'] == 'ok'){
+    ?>
+<div class="row">
+    <div class="span9 alert alert-block alert-success">
+        <button data-dismiss="alert" class="close" type="button">
+			<i class="icon-remove"></i>
+		</button>
+        <?php echo UserModule::t("New password sent to email.");?>
+    </div>
+</div>
+    <?php 
+    }
+    if (isset($_GET['sent']) && $_GET['sent'] == 'error'){
+    ?>
+<div class="row">
+    <div class="span9 alert alert-block alert-warning">
+        <button data-dismiss="alert" class="close" type="button">
+			<i class="icon-remove"></i>
+		</button>
+        <?php echo UserModule::t("Failed to send password to the e mail.");?>
+    </div>
+</div>
+    <?php 
+    }    
+    ?>
 <div class="row">
     <div class="span4">
         <?php
