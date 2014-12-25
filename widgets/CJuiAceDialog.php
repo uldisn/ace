@@ -58,8 +58,10 @@ class CJuiAceDialog extends CJuiWidget
     
     public $title = '';
     public $title_icon = false;
-    
-	/**
+    public $selector = false;
+
+
+    /**
 	 * Renders the open tag of the dialog.
 	 * This method also registers the necessary javascript code.
 	 */
@@ -98,6 +100,8 @@ class CJuiAceDialog extends CJuiWidget
 		else
 			$this->htmlOptions['id']=$id;
         
+        $this->registreSelector();
+        
         //options
         $this->options['title'] = $this->createTilte();
         $this->options['title_html'] = true;
@@ -108,9 +112,25 @@ class CJuiAceDialog extends CJuiWidget
 		echo CHtml::openTag($this->tagName,$this->htmlOptions)."\n";
 	}
     
+    public function registreSelector(){
+        if(!$this->selector){
+            return;
+        }
+        
+        Yii::app()->clientScript->registerScript($this->id, 
+        '
+            $(document ).on("click","'.$this->selector.'",function(event) {
+                event.preventDefault();
+                var ui_dialog_ajax_url = $(this).attr("href");
+                $("#'.$this->id.'").html("");
+                $("#'.$this->id.'").load(ui_dialog_ajax_url).dialog("open"); 
+                return false;
+           })   
+        '
+        );        
+    }
 
-
-	/**
+    	/**
 	 * Renders the close tag of the dialog.
 	 */
 	public function run()
