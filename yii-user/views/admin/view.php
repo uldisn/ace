@@ -132,10 +132,21 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                 //kaut kads gljuks, nedrikst padot masivu ar vienu elementu
                 $aChecked = $aChecked[0];
             }
+            
+            $all_roles = Authitem::model()->findAllByAttributes(['type'=>Authitem::TYPE_ROLE]);
+            $all_roles_dict = [];
+            foreach ($all_roles as $role_record){
+                $all_roles_dict[$role_record['name']] = $role_record['description'];
+            }
             $UserAdminRoles = Yii::app()->getModule('user')->UserAdminRoles;
-            $list = array();
+            $list = [];
             foreach ($UserAdminRoles as $role_name) {
-                $list[$role_name] = Yii::t('roles', $role_name);
+                //$list[$role_name] = Yii::t('roles', $role_name);
+                if(isset($all_roles_dict[$role_name])){
+                    $list[$role_name] = $all_roles_dict[$role_name];
+                }else{
+                    $list[$role_name] = $role_name;
+                }
             }
             $body = CHtml::checkBoxList(
                             'user_role_name', $aChecked, $list, array(
