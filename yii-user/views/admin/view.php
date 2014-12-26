@@ -141,11 +141,9 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
             $UserAdminRoles = Yii::app()->getModule('user')->UserAdminRoles;
             $list = [];
             foreach ($UserAdminRoles as $role_name) {
-                //$list[$role_name] = Yii::t('roles', $role_name);
+                //add only defined roles
                 if(isset($all_roles_dict[$role_name])){
                     $list[$role_name] = $all_roles_dict[$role_name];
-                }else{
-                    $list[$role_name] = $role_name;
                 }
             }
             $body = CHtml::checkBoxList(
