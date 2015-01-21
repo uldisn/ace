@@ -28,8 +28,8 @@
                     </div>
                     <div class='controls'>
                         <?php echo $form->textField($model, 'username', array(
-                            'size' => 20, 
-                            'maxlength' => 20,
+                            'size' => 30, 
+                            'maxlength' => 128,
                             'autocomplete' => 'off',
                             )
                                 ); ?>
