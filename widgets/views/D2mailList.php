@@ -76,6 +76,16 @@
                                 <?php
                             }
 
+                            if ($mc['recipients']) {
+                                ?>
+                                <span class="summary">
+                                    <span class="text">
+                                        <?php echo $m['recipients'] ?>
+                                    </span>
+                                </span>
+                                <?php
+                            }
+
                             if ($mc['time']) {
                                 ?>
                                 <span class="time"><?php echo $m['time'] ?></span>
