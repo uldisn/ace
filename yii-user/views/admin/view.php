@@ -94,12 +94,24 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
             }
         }
 
+        $pprs = PprsPerson::model()->findByPk($model->profile->person_id);
         array_push($attributes,
                 //'password',
-                'email', 'create_at', 'lastvisit_at', array(
-            'name' => 'status',
-            'value' => User::itemAlias("UserStatus", $model->status),
-                )
+                'email', 
+                'create_at', 
+                'lastvisit_at', 
+                [
+                    'name' => 'status',
+                    'value' => User::itemAlias("UserStatus", $model->status),
+                ],
+                [
+                    'name' => UserModule::t('Person'),
+                    'type' => 'raw',
+                    'value' => $pprs->itemLabel,
+                    'value_id' => $pprs->pprs_id,
+                    'external_link' => array('/d2person/pprsPerson/view','pprs_id'=>$pprs->pprs_id),
+                    'external_title' => UserModule::t('Open person data card'),            
+                ]
         );
         $defaultDetailView = Yii::app()->getModule('user')->defaultDetailView;
         $this->widget($defaultDetailView['path'], $defaultDetailView['options'] + array(
