@@ -58,7 +58,7 @@ if (Yii::app()->hasModule('d2person')) {
 <div class="space-12"></div>
     <div class="row-fluid">
         <div class="span7">
-            <?
+            <?php
             $view = Yii::app()->getModule('user')->view . '.profile._view_contacts';
             $this->renderPartial($view);
             ?>
@@ -73,7 +73,7 @@ if (Yii::app()->hasModule('d2files') ) {
 <div class="space-12"></div>
     <div class="row-fluid">
         <div class="span7">
-            <?
+            <?php
             $pprs_id = Yii::app()->getModule('user')->user()->profile->person_id;
             $pprs_model = PprsPerson::model()->findByPk($pprs_id);
             if(empty($pprs_model)){
@@ -92,4 +92,3 @@ if (Yii::app()->hasModule('d2files') ) {
     </div>
 <?php
 }
-
