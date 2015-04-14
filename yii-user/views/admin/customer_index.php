@@ -49,10 +49,22 @@ $('.search-form form').submit(function(){
 
 		array(
 			'name' => 'ccmp_name',
+            'header' => UserModule::t("Customer Company"),
 		),
-		array(
-			'name' => 'username',
-		),
+        array(
+			'name' => 'first_name',
+            'value' => '$data->profile->first_name',
+        ),    
+        array(
+			'name' => 'last_name',
+            'value' => '$data->profile->last_name',
+        ),    
+//        array(
+//			'name' => 'last_name',
+//        ),    
+//		array(
+//			'name' => 'username',
+//		),
 		array(
 			'name'=>'email',
 		),
