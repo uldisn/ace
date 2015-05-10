@@ -49,6 +49,7 @@ $('.search-form form').submit(function(){
 
 		array(
 			'name' => 'ccmp_name',
+            'type' => 'raw',
             'header' => UserModule::t("Customer Company"),
 		),
         array(

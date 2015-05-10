@@ -1,19 +1,17 @@
-<?php
-$cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
-    "icon" => "chevron-left",
-    "size" => "large",
-    "url" => (isset($_GET["returnUrl"])) ? $_GET["returnUrl"] : array("{$this->id}/customerAdmin"),
-    "htmlOptions" => array(
-        "class" => "search-button",
-        "data-toggle" => "tooltip",
-        "title" => UserModule::t("User List"),
-    )
-        ), true);
-    
-?>    
 <div class="clearfix">
     <div class="btn-toolbar pull-left">
-        <div class="btn-group"><?php echo $cancel_buton; ?></div>
+        <div class="btn-group"><?php 
+        $this->widget("bootstrap.widgets.TbButton", array(
+            "icon" => "chevron-left",
+            "size" => "large",
+            "url" => (isset($_GET["returnUrl"])) ? $_GET["returnUrl"] : array("{$this->id}/customerAdmin"),
+            "htmlOptions" => array(
+                "class" => "search-button",
+                "data-toggle" => "tooltip",
+                "title" => UserModule::t("User List"),
+            )
+        ));
+        ?></div>
         <div class="btn-group">
             <h1>
                 <i class="icon-user"></i>
@@ -151,64 +149,26 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
         ));
         ?>
         <div class="btn-toolbar pull-left">
-            <div class="btn-group"><?php echo $cancel_buton; ?></div>
+            <div class="btn-group"><?php
+                $this->widget("bootstrap.widgets.TbButton", array(
+                    "icon" => "chevron-left",
+                    "size" => "large",
+                    "url" => (isset($_GET["returnUrl"])) ? $_GET["returnUrl"] : array("{$this->id}/customerAdmin"),
+                    "htmlOptions" => array(
+                        "class" => "search-button",
+                        "data-toggle" => "tooltip",
+                        "title" => UserModule::t("User List"),
+                    )
+                ));            
+            ?></div>
         </div>        
     </div>
     <div class="span8">
     <?php        
-    $ccuc = new CcucUserCompany();
-    $ccuc->ccuc_person_id = $model->profile->person_id;
-    $ccuc->ccuc_status = CcucUserCompany::CCUC_STATUS_PERSON;    
-
-    // render grid view
-    $this->widget('TbGridView',
-        array(
-            'id' => 'ccuc-user-company-grid',
-            'dataProvider' => $ccuc->searchPersonsForRel(),
-            'template' => '{summary}{items}',
-            'summaryText' => '&nbsp;',
-            'htmlOptions' => array(
-                'class' => 'rel-grid-view'
-            ),
-            'columns' => array(
-                array(
-                //'class' => 'editable.EditableColumn',
-                'name' => 'ccuc_ccmp_id',
-                'value' => '$data->ccmp_name',
-//                'editable' => array(
-//                    'type' => 'select',
-//                    'url' => $this->createUrl('//d2company/ccucUserCompany/editableSaver'),
-//                    'source' => CHtml::listData(Yii::app()->sysCompany->getClientCompanies(), 'ccmp_id', 'ccmp_name'),
-//                    //'placement' => 'right',
-//                )
-            ),
-//            array(
-//                'class' => 'editable.EditableColumn',
-//                'name' => 'ccuc_cucp_id',
-//                //'value' => '(!'.$bft.' && !empty($data->ccuc_cucp_id))?$data->ccucCucp->cucp_name:""',                
-//                'editable' => array(
-//                    'type' => 'select',
-//                    'url' => $this->createUrl('//d2company/ccucUserCompany/editableSaver'),
-//                    'source' => CHtml::listData(CucpUserCompanyPosition::model()->findAll(array('limit' => 1000)), 'cucp_id', 'itemLabel'),
-//                    //'placement' => 'right',
-//                )
-//            ),                
-
-                array(
-                    'class' => 'TbButtonColumn',
-                    'buttons' => array(
-                        'view' => array('visible' => 'FALSE'),
-                        'update' => array('visible' => 'FALSE'),
-                        'delete' => array('visible' => 'TRUE'),
-                    ),
-                    'deleteButtonUrl' => 'Yii::app()->controller->createUrl("/d2company/ccucUserCompany/delete", array("ccuc_id" => $data->ccuc_id))',
-                    'deleteConfirmation'=>Yii::t('D2personModule.crud_static','Do you want to delete this item?'),
-                    'deleteButtonOptions'=>array('data-toggle'=>'tooltip'),
-                    //'visible' => Yii::app()->user->checkAccess("D2company.CcucUserCompany.Delete"),
-                ),
-            )
-        )
-    );
+  		$this->renderPartial($companies_view,array(
+            'model' => $model,
+            'ajax' => false,
+		));
         
     ?>
     </div>
