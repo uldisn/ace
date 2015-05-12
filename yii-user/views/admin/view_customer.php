@@ -38,6 +38,13 @@
                     "size" => "large",
                     "url" => array('emailInvitation', 'id' => $model->getPrimaryKey()),
                 ));                
+                $this->widget("bootstrap.widgets.TbButton", array(
+                    "label" => UserModule::t("Delete"),
+                    "icon"=>"icon-remove icon-white",
+                    'type' => TbButton::TYPE_DANGER,
+                    "size" => "large",
+                    "url" => array('deleteCustomer', 'id' => $model->getPrimaryKey()),
+                ));                
                 
             ?>
         </div>

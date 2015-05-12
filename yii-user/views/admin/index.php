@@ -81,7 +81,7 @@ $('.search-form form').submit(function(){
             'buttons' => array(
                 'view' => array('visible' => 'TRUE'),
                 'update' => array('visible' => 'Yii::app()->user->checkAccess("UserAdmin")'),
-                'delete' => array('visible' => 'Yii::app()->user->checkAccess("UserAdmin")'),
+                'delete' => array('visible' => 'FALSE'),
             ),
 		),
 	),
