@@ -5,7 +5,7 @@ class TbAceDetailView extends CDetailView {
     public $tagName = 'div';
     public $htmlOptions = array('class' => 'profile-user-info profile-user-info-striped');
     public $itemTemplate = '
-                <div class="profile-info-row"><div class="profile-info-name">{label}</div>
+                <div class="profile-info-row {class}"><div class="profile-info-name">{label}</div>
                 <div class="profile-info-value">{value}</div></div>';
     public $label_width = 120;
 
