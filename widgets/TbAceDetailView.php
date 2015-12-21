@@ -20,7 +20,7 @@ class TbAceDetailView extends CDetailView {
 
         Yii::app()->clientScript->registerCss($this->id . 'fix_detail_view', ' 
             #' . $this->id . ' .profile-info-name {width: ' . $this->label_width . 'px;}
-            #' . $this->id . ' .profile-info-value {margin-left: ' . $this->label_width . 'px;height: 20px;}
+            #' . $this->id . ' .profile-info-value {margin-left: ' . $this->label_width . 'px;min-height: 20px;}
         ');
 
 
